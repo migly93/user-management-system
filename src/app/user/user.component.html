@@ -1,8 +1,9 @@
-<td>{{ user.name }}</td>
+<td>{{ user.firstName }}</td>
 <td>{{ user.lastName }}</td>
 <td>{{ user.email }}</td>
 <td>{{ user.fiscalCode }}</td>
 <td>{{ user.province }}</td>
 <td>{{ user.phone }}</td>
 <td>{{ user.age }}</td>
+<button type="button" class="btn btn-outline-primary" (click)="onUpdateUser()">Modifica</button>
 <button type="button" class="btn btn-outline-danger" (click)="onDeleteUser()">Elimina</button>

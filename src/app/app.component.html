@@ -1,4 +1,11 @@
 <h1>User Management System</h1>
-<div>
-  <app-users></app-users>
+<button type="button" class="btn btn-primary" (click)="onNewUser()">Nuovo Utente</button>
+<div class="main">
+  <div class="users">
+    <app-users (updateUser)="updateUser($event)"></app-users>
+  </div>
+  <div class="userDetail" *ngIf="showForm">
+    <app-user-detail [user]="userSelected"></app-user-detail>
+  </div>
 </div>
+

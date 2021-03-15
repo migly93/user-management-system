@@ -1,4 +1,4 @@
-import { User } from './../interfaces/user';
+import { User } from './../classes/user';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserComponent implements OnInit {
   @Input() user!: User;
   @Output() userDeleted = new EventEmitter();
+  @Output() userUpdated = new EventEmitter();
 
   constructor() {
   }
@@ -18,6 +19,10 @@ export class UserComponent implements OnInit {
 
   onDeleteUser() {
     this.userDeleted.emit(this.user);
+  }
+
+  onUpdateUser() {
+    this.userUpdated.emit(this.user);
   }
 
 }
