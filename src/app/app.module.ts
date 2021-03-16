@@ -8,6 +8,8 @@ import { UserComponent } from './user/user.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -15,12 +17,14 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     UserComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -5,5 +5,19 @@
 <td>{{ user.province }}</td>
 <td>{{ user.phone }}</td>
 <td>{{ user.age }}</td>
-<button type="button" class="btn btn-outline-primary" (click)="onUpdateUser()">Modifica</button>
-<button type="button" class="btn btn-outline-danger" (click)="onDeleteUser()">Elimina</button>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary btn-md" (click)="onUpdateUser()">
+      <fa-icon [icon]="faPencil"></fa-icon>
+    </button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-danger btn-md" (click)="onDeleteUser()">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+  </div>
+</div>
+
+

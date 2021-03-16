@@ -1,5 +1,6 @@
 import { User } from './../classes/user';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'tr[app-user]',
@@ -10,6 +11,9 @@ export class UserComponent implements OnInit {
   @Input() user!: User;
   @Output() userDeleted = new EventEmitter();
   @Output() userUpdated = new EventEmitter();
+
+  faPencil = faPencilAlt;
+  faTrash = faTrashAlt;
 
   constructor() {
   }
