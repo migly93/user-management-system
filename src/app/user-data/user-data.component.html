@@ -1,0 +1,38 @@
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">Nome</th>
+      <td>{{user.firstName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Cognome</th>
+      <td>{{user.lastName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Codice Fiscale</th>
+      <td>{{user.fiscalCode}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Età</th>
+      <td>{{user.age}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Telefono</th>
+      <td>{{user.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Provincia</th>
+      <td>{{user.province}}</td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <button class="btn btn-primary" (click)="onBack()">Indietro</button>
+        </td>
+      </tr>
+    </tfoot>
+</table>

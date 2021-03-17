@@ -50,6 +50,13 @@ export class UserService {
     return this.users;
   }
 
+  getUser(id: number) {
+    const index =  this.users.findIndex(user =>
+      user.id === id
+    );
+    return this.users[index];
+  }
+
   deleteUser(user: any) {
     let index = this.users.indexOf(user);
     if(index !== -1)
@@ -57,9 +64,9 @@ export class UserService {
   }
 
   updateUser(user: User) {
-    const index = this.users.findIndex( (u) => {
-      return u.id === user.id;
-    });
+    const index =  this.users.findIndex(u =>
+      u.id === user.id
+    );
 
     if(index !== -1)
       this.users[index] = user;
@@ -73,9 +80,9 @@ export class UserService {
     );
 
     console.log(maxId +1);
+    user.id = maxId + 1;
+    //this.users.push(user);
 
     this.users.splice(0, 0, user);
-
-
   }
 }

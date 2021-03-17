@@ -10,6 +10,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavComponent } from './nav/nav.component';
+import { UserDataComponent } from './user-data/user-data.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NavComponent } from './nav/nav.component';
     UserComponent,
     UsersComponent,
     UserDetailComponent,
-    NavComponent
+    NavComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,

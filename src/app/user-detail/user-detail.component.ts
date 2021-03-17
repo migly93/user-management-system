@@ -1,6 +1,7 @@
 import { UserService } from './../services/user.service';
 import { User } from './../classes/user';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -10,20 +11,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserDetailComponent implements OnInit {
 
   private backupUser!: User;
-  private __user!: User;
+  isDataAvailable: boolean = false;
 
-  @Input() set user(user: User){
-    this.__user = user;
-    this.backupUser = Object.assign({}, user);
-  };
+  @Input() user: User;
 
-  get user() {
-    return this.__user;
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
+    this.user = new User();
   }
 
-  constructor(private userService: UserService) { }
-
   ngOnInit(): void {
+    this.route.params.subscribe(
+      (params) => {
+        this.user = this.userService.getUser(+params.id);
+      }
+    )
+    if(!this.user)
+      this.user = new User();
+    this.isDataAvailable = true;
+    this.backupUser = Object.assign({}, this.user);
   }
 
   onUpdateUser() {
@@ -31,6 +36,8 @@ export class UserDetailComponent implements OnInit {
       this.userService.updateUser(this.user);
     else
       this.userService.insertUser(this.user);
+
+    this.router.navigate(["users"]);
   }
 
   onResetForm(form: any) {

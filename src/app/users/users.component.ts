@@ -25,8 +25,7 @@ export class UsersComponent implements OnInit {
   }
 
   onUpdateUser(user: User) {
-    const userCopy = Object.assign({}, user);
-    this.updateUser.emit(userCopy);
+    this.updateUser.emit(user);
   }
 
 }
