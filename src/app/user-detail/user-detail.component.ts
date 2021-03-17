@@ -46,4 +46,8 @@ export class UserDetailComponent implements OnInit {
     else
       this.user = this.backupUser;
   }
+
+  onBack() {
+    this.router.navigate(["users"]);
+  }
 }

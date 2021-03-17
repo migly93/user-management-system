@@ -35,15 +35,10 @@
         <input type="text" class="form-control" id="fiscalCodeInput" placeholder="Provincia" [(ngModel)]="user.province" name="province">
       </div>
     </div>
-    <div class="form-group form-footer">
-      <div class="row">
-        <div class="col-md-6">
-          <button type="submit" class="btn btn-success" (click)="onUpdateUser()">Salva</button>
-        </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-secondary" (click)="onResetForm(f.form)">Reset</button>
-        </div>
-      </div>
+    <div class="form-group form-footer text-center">
+      <button type="button" class="btn btn-primary" (click)="onBack()">Indietro</button>
+      <button type="button" class="btn btn-secondary" (click)="onResetForm(f.form)">Reset</button>
+      <button type="button" class="btn btn-success" (click)="onUpdateUser()">Salva</button>
     </div>
 
   </form>
