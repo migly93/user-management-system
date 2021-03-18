@@ -15,8 +15,13 @@ export class UserDataComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe( (params) => {
-      this.user = this.userService.getUser(+params.id);
+    this.route.paramMap.subscribe( (params) => {
+      const idString = params.get("id");
+      let id: number = -1;
+      if(idString){
+        id = parseInt(idString);
+      }
+      this.user = this.userService.getUser(id);
     });
   }
 

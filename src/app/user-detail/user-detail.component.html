@@ -4,7 +4,15 @@
     <div class="form-row">
       <div class="form-group col-md-5">
         <label for="name">Nome</label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Nome" [(ngModel)]="user.firstName" name="firstName">
+        <input required minlength="3" type="text" class="form-control" id="nameInput" placeholder="Nome" [(ngModel)]="user.firstName" name="firstName" #firstName="ngModel">
+        <div *ngIf="firstName.dirty && firstName.touched && firstName.errors ">
+          <div class="alert-danger" *ngIf="firstName.errors.required">
+            Il campo Nome è obbligatorio
+          </div>
+          <div class="alert-danger" *ngIf="firstName.errors.minlength">
+            La lunghezza minima è 3 caratteri
+          </div>
+        </div>
       </div>
       <div class="form-group col-md-5">
         <label for="lastName">Cognome</label>
@@ -38,7 +46,7 @@
     <div class="form-group form-footer text-center">
       <button type="button" class="btn btn-primary" (click)="onBack()">Indietro</button>
       <button type="button" class="btn btn-secondary" (click)="onResetForm(f.form)">Reset</button>
-      <button type="button" class="btn btn-success" (click)="onUpdateUser()">Salva</button>
+      <button type="button" class="btn btn-success" (click)="onUpdateUser()" [disabled]="f.invalid">Salva</button>
     </div>
 
   </form>

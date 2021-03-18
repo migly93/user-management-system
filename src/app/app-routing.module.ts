@@ -3,11 +3,15 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RouteGuardService } from './services/route-guard.service';
 
 const routes: Routes = [
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [
+      RouteGuardService
+    ]
   },
   {
     path: 'users/new',
@@ -30,6 +34,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [RouteGuardService]
 })
 export class AppRoutingModule { }
