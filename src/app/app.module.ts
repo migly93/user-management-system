@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavComponent } from './nav/nav.component';
 import { UserDataComponent } from './user-data/user-data.component';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { UserDataComponent } from './user-data/user-data.component';
     UsersComponent,
     UserDetailComponent,
     NavComponent,
-    UserDataComponent
+    UserDataComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { UserDataComponent } from './user-data/user-data.component';
     FormsModule,
     FontAwesomeModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
