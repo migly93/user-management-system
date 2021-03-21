@@ -1,3 +1,4 @@
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
@@ -16,7 +17,11 @@ const routes: Routes = [
   },
   {
     path: 'users/new',
-    component: UserDetailComponent
+    component: UserDetailComponent,
+    canActivate: [
+      RouteGuardService
+    ]
+
   },
   {
     path: '',
@@ -25,15 +30,27 @@ const routes: Routes = [
   },
   {
     path: 'users/:id/edit',
-    component: UserDetailComponent
+    component: UserDetailComponent,
+    canActivate: [
+      RouteGuardService
+    ]
   },
   {
     path: 'users/:id',
-    component: UserDataComponent
+    component: UserDataComponent,
+    canActivate: [
+      RouteGuardService
+    ]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    pathMatch: "full"
+  }
+  ,
+  {
+    path: 'signup',
+    component: SignUpComponent
   }
 ];
 

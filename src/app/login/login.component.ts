@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(form: NgForm) {
-    let result = this.auth.login(form.value.email, form.value.password).topromi;
+    let result = this.auth.login(form.value.email, form.value.password);
     if(result)
       this.router.navigate(["/"]);
   }
